@@ -40,27 +40,43 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     return Scaffold(
       backgroundColor: Color(0xFFF0746A),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(left: 10, top: 400, right: 10, bottom: 0),
-                child: Text(
-                  'DRAUGHT',
-                  style: TextStyle(
-                      fontFamily: 'Viga',
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white
+      body: ListView(
+        children: [
+          Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.only(left: 10, top: 40, right: 10, bottom: 0),
+                  child: Text(
+                    'DRAUGHT',
+                    style: TextStyle(
+                        fontFamily: 'Viga',
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white
+                    ),
                   ),
                 ),
-              ),
-              Image.asset('assets/images/AtWindow.jpg'),
-            ],
+                Image.asset('assets/images/AtWindow.jpg'),
+              ],
+            ),
           ),
-        ),
+          Expanded(
+            child: Container(
+              height: 300,
+              child: Column(
+                children: [
+                ],
+              ),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20))
+              ),
+
+            ),
+          )
+        ],
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
