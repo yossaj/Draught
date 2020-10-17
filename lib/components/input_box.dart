@@ -23,7 +23,7 @@ class InputBox extends StatelessWidget {
                 style: kBodyText,),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+              padding: EdgeInsets.only(bottom: 10, left: 10, right: 10),
               child: TextField(),
             )
           ],

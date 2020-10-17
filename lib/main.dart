@@ -4,7 +4,6 @@ import 'components/building_button.dart';
 import 'components/input_box.dart';
 import 'package:flutter/material.dart';
 
-
 void main() {
   runApp(MyApp());
 }
@@ -42,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      backgroundColor: Color(0xFFF0746A),
+      backgroundColor: kBaseColor,
       body: ListView(
         children: [
           Container(
@@ -82,7 +81,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.w300,
-                              color: Color(0xFF24255E)),)),
+                              color: Color(0xFF24255E)),
+                        )),
                     Padding(
                         padding:
                             EdgeInsets.symmetric(horizontal: 30, vertical: 10),
@@ -93,22 +93,69 @@ class _MyHomePageState extends State<MyHomePage> {
                                 fontSize: 20,
                                 fontWeight: FontWeight.w500,
                                 color: Color(0xFF24255E)))),
-                    InputBox(text: 'Postcode',),
-                    InputBox(text: 'Which floor do you live on?',),
+                    InputBox(
+                      text: 'Postcode',
+                    ),
+                    InputBox(
+                      text: 'Which floor do you live on?',
+                    ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         'What type of home do you live in?',
                         style: kBodyText,
                       ),
-                    ), 
+                    ),
                     Column(
                       children: [
-                        HomeRow(),
-                        HomeRow()
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            BuildingButton(
+                              text: 'Terrace',
+                              imagePath: 'assets/images/terrace.png',
+                            ),
+                            BuildingButton(
+                              text: 'Detached House',
+                              imagePath: 'assets/images/house.png',
+                            )
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            BuildingButton(
+                              text: 'Apartment',
+                              imagePath: 'assets/images/apartments.png',
+                            ),
+                            BuildingButton(
+                              text: 'Semi-Detached',
+                              imagePath: 'assets/images/semi_detached.png',
+                            )
+                          ],
+                        )
                       ],
-                    ), 
-                    Text('More more')
+                    ),
+                    Text('More more'),
+                    SizedBox(height: 50,),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        color: Colors.deepOrange
+                      ),
+                      width: double.infinity,
+                      child: FlatButton(
+                        child: Text(
+                            'Calculate',
+                            style: TextStyle(
+                              color: Colors.white
+                            ),
+                        ),
+                        textColor: Colors.white,
+
+                      ),
+                    ),
+                    SizedBox(height: 50)
                   ],
                 ),
               ),
@@ -118,28 +165,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       topLeft: Radius.circular(20),
                       topRight: Radius.circular(20))),
             ),
-          )
+          ),
+
         ],
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
-
-class HomeRow extends StatelessWidget {
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        BuildingButton(),
-        BuildingButton()
-      ],
-    );
-  }
-}
-
-
-
-
-

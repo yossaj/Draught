@@ -4,12 +4,32 @@ import 'floating_box.dart';
 
 class BuildingButton extends StatefulWidget {
 
+  BuildingButton({this.text, this.imagePath});
+  final String text;
+  final String imagePath;
+
+
+
   @override
   _BuildingButtonState createState() => _BuildingButtonState();
 }
 
 class _BuildingButtonState extends State<BuildingButton> {
   Color backgroundColor = Colors.white;
+  String text;
+  String imagePath;
+
+  @override
+  void initState() {
+    setContent();
+    // TODO: implement initState
+    super.initState();
+  }
+
+  void setContent(){
+    text = widget.text;
+    imagePath = widget.imagePath;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +43,7 @@ class _BuildingButtonState extends State<BuildingButton> {
             onPressed: (){
               setState(() {
                 if(backgroundColor == Colors.white){
-                  backgroundColor = Colors.deepOrange;
+                  backgroundColor = Colors.deepOrangeAccent;
                 }else{
                   backgroundColor = Colors.white;
                 }
@@ -34,9 +54,9 @@ class _BuildingButtonState extends State<BuildingButton> {
             child: Column(
               children: [
                 SizedBox(height: 10),
-                Image.asset('assets/images/terrace.png'),
+                Image.asset(imagePath),
                 SizedBox(height: 5),
-                Text("Terrace"),
+                Text(text),
                 SizedBox(height: 10)
               ],
             ),
