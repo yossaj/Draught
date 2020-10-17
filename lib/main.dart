@@ -1,5 +1,9 @@
 import 'package:draught/constants.dart';
+import 'components/floating_box.dart';
+import 'components/building_button.dart';
+import 'components/input_box.dart';
 import 'package:flutter/material.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -90,7 +94,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                 fontWeight: FontWeight.w500,
                                 color: Color(0xFF24255E)))),
                     InputBox(text: 'Postcode',),
-                    InputBox(text: 'Which floor do you live on?',)
+                    InputBox(text: 'Which floor do you live on?',),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'What type of home do you live in?',
+                        style: kBodyText,
+                      ),
+                    ), 
+                    Column(
+                      children: [
+                        HomeRow(),
+                        HomeRow()
+                      ],
+                    ), 
+                    Text('More more')
                   ],
                 ),
               ),
@@ -107,45 +125,21 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class InputBox extends StatelessWidget {
-
-  InputBox({this.text});
-
-  final String text;
+class HomeRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding:EdgeInsets.symmetric(vertical: 10),
-      child: Container(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.only(left: 10, top: 10),
-              child: Text(
-                  text,
-              style: kBodyText,),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-              child: TextField(),
-            )
-          ],
-        ),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.all(Radius.circular(5)) ,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 5,
-              blurRadius: 7,
-              offset: Offset(0, 3), // changes position of shadow
-            ),
-          ]
-        ),
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        BuildingButton(),
+        BuildingButton()
+      ],
     );
   }
 }
+
+
+
+
+
