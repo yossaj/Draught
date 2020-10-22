@@ -1,4 +1,4 @@
-import 'screens/questionaire_screen.dart';
+import 'screens/questionnaire_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepOrange,
       ),
-      home: QustionaireScreen(title: 'Draught'),
+      home: QuestionnaireScreen(title: 'Draught'),
     );
   }
 }

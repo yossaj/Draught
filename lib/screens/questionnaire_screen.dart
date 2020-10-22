@@ -1,23 +1,20 @@
 import 'package:draught/constants.dart';
+import 'package:draught/screens/results_screen.dart';
 
 import '../components/building_button.dart';
 import '../components/input_box.dart';
 import 'package:flutter/material.dart';
 
-class QustionaireScreen extends StatefulWidget {
-  QustionaireScreen({Key key, this.title}) : super(key: key);
+class QuestionnaireScreen extends StatefulWidget {
+  QuestionnaireScreen({Key key, this.title}) : super(key: key);
 
   final String title;
 
-
-
-
-
   @override
-  _QustionaireScreenState createState() => _QustionaireScreenState();
+  _QuestionnaireScreenState createState() => _QuestionnaireScreenState();
 }
 
-class _QustionaireScreenState extends State<QustionaireScreen> {
+class _QuestionnaireScreenState extends State<QuestionnaireScreen> {
 
   int chosenNumber;
 
@@ -161,6 +158,11 @@ class _QustionaireScreenState extends State<QustionaireScreen> {
                       ),
                       width: double.infinity,
                       child: FlatButton(
+                        onPressed: (){
+                         Navigator.push(context, MaterialPageRoute(builder: (context){
+                           return ResultsScreen();
+                         }));
+                        },
                         child: Text(
                           'Calculate',
                           style: TextStyle(
