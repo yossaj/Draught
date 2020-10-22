@@ -2,37 +2,22 @@
 import 'package:flutter/material.dart';
 import 'floating_box.dart';
 
-class BuildingButton extends StatefulWidget {
+class BuildingButton extends StatelessWidget{
 
-  BuildingButton({this.text, this.imagePath});
+  final int number;
+  final int chosenNumber;
   final String text;
   final String imagePath;
+  final Function onPress;
+  BuildingButton({this.text, this.imagePath, this.chosenNumber, this.number, this.onPress});
 
 
 
-  @override
-  _BuildingButtonState createState() => _BuildingButtonState();
-}
-
-class _BuildingButtonState extends State<BuildingButton> {
-  Color backgroundColor = Colors.white;
-  String text;
-  String imagePath;
-
-  @override
-  void initState() {
-    setContent();
-    // TODO: implement initState
-    super.initState();
-  }
-
-  void setContent(){
-    text = widget.text;
-    imagePath = widget.imagePath;
-  }
 
   @override
   Widget build(BuildContext context) {
+    Color backgroundColor = (number == chosenNumber) ?  Colors.deepOrange : Colors.white;
+
     return  Expanded(
       child: Padding(
         padding: EdgeInsets.all(8.0),
@@ -40,17 +25,7 @@ class _BuildingButtonState extends State<BuildingButton> {
           backgroundColor: backgroundColor,
 
           child: FlatButton(
-            onPressed: (){
-              setState(() {
-                if(backgroundColor == Colors.white){
-                  backgroundColor = Colors.deepOrangeAccent;
-                }else{
-                  backgroundColor = Colors.white;
-                }
-
-              });
-
-            },
+            onPressed: onPress,
             child: Column(
               children: [
                 SizedBox(height: 10),
